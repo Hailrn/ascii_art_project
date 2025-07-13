@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="{% static 'ascii_converter/ascii_converter_icon.ico' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to ASCII Maker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-pink': '#ff69b4', // Pink gemoy
+                        'dark-bg': '#1a202c', // Latar belakang gelap
+                        'dark-card': '#2d3748', // Latar belakang card gelap
+                        'dark-text': '#e2e8f0', // Teks terang untuk dark mode
+                        'dark-border': '#4a5568', // Border gelap
+                        'dark-input-bg': '#4a5568', // Input background gelap
+                        'dark-input-border': '#718096', // Input border gelap
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="dark bg-dark-bg text-dark-text flex flex-col items-center min-h-screen p-4 sm:p-6 md:p-8 font-sans">
+    <div class="container bg-dark-card shadow-lg rounded-xl p-6 sm:p-8 md:p-10 w-full text-center space-y-6">
+        <h1 class="text-primary-pink text-4xl sm:text-5xl font-extrabold mb-6 animate-pulse">
+            Image to ASCII Maker
+        </h1>
+        
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            
+            <label for="image_file" class="block text-lg font-medium text-dark-text mb-2">Choose a picture:</label>
+            <input type="file" name="image_file" id="image_file" accept="image/*" required
+                   class="block w-full text-sm text-dark-text file:mr-4 file:py-2 file:px-4
+                          file:rounded-full file:border-0 file:text-sm file:font-semibold
+                          file:bg-primary-pink file:text-white hover:file:bg-pink-700
+                          border-2 border-dashed border-dark-input-border rounded-lg p-3 cursor-pointer
+                          bg-dark-input-bg transition duration-300 ease-in-out
+                          focus:outline-none focus:ring-2 focus:ring-primary-pink focus:border-transparent">
+            
+            <button type="submit"
+                    class="bg-primary-pink text-white py-3 px-8 rounded-lg text-lg font-semibold
+                           hover:bg-pink-700 transition duration-300 ease-in-out transform hover:-translate-y-1
+                           focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-opacity-75">
+                Convert to ASCII!
+            </button>
+        </form>
+
+        {% if uploaded_image_url %}
+        <div class="uploaded-image mt-8 pt-6 border-t border-dark-border">
+            <h2 class="text-2xl sm:text-3xl font-bold text-dark-text mb-4">Original Image:</h2>
+            <img src="{{ uploaded_image_url }}" alt="Gambar yang diupload"
+                 class="max-w-full h-auto mx-auto rounded-lg shadow-md border-2 border-dark-border">
+        </div>
+        {% endif %}
+
+        {% if ascii_art %}
+        <div class="result-section mt-8 pt-6 border-t border-dark-border bg-dark-input-bg rounded-lg p-5 text-left overflow-x-auto shadow-md">
+            <h2 class="text-2xl sm:text-3xl font-bold text-dark-text mb-4">ASCII Version (1:8):</h2>
+            <pre class="whitespace-pre font-mono text-xs sm:text-sm leading-tight text-dark-text">
+                {{ ascii_art }}
+            </pre>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer mt-10 text-gray-400 text-sm">
+        This Page is Developed by Hailrn
+    </div>
+</body>
+</html>
