@@ -89,31 +89,3 @@ Before you begin, ensure you have the following installed on your system:
 
 2.  **Access the application:**
     Open your web browser and navigate to `http://127.0.0.1:8000/`.
-
-## Project Structure
-.
-├── ascii_art_project/           # Django project root
-│   ├── init.py
-│   ├── asgi.py
-│   ├── settings.py              # Main project settings
-│   ├── urls.py                  # Main project URL configurations
-│   └── wsgi.py
-├── ascii_converter/             # Django app for ASCII conversion logic
-│   ├── migrations/
-│   ├── templates/
-│   │   └── ascii_converter/
-│   │       └── upload.html      # Frontend HTML with Tailwind CSS
-│   ├── static/                  # Static files (e.g., favicon)
-│   │   └── ascii_converter/
-│   │       └── favicon.ico
-│   ├── init.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── urls.py                  # App-specific URL configurations
-│   └── views.py                 # Core logic for image processing and rendering
-├── media/                       # Temporarily stores uploaded images (ignored by Git)
-├── venv/                        # Python virtual environment (ignored by Git)
-├── .gitignore                   # Specifies files/folders to be ignored by Git
-├── manage.py                    # Django's command-line utility
-└── requirements.txt             # List of project dependencies
