@@ -36,10 +36,9 @@ Before you begin, ensure you have the following installed on your system:
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/USERNAME_ANDA/NAMA_REPO_ANDA.git](https://github.com/USERNAME_ANDA/NAMA_REPO_ANDA.git)
+    git clone [https://github.com/Hailrn/ascii_art_project.git](https://github.com/USERNAME_ANDA/NAMA_REPO_ANDA.git)
     cd NAMA_REPO_ANDA # Ganti dengan nama repository Anda
     ```
-    *(Ganti `USERNAME_ANDA` dan `NAMA_REPO_ANDA` dengan username dan nama repository GitHub bubu ya!)*
 
 2.  **Create a virtual environment:**
     It's highly recommended to use a virtual environment to manage project dependencies.
